@@ -1,0 +1,68 @@
+.form-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding-top: 15vh;
+  form {
+    width: 30vh;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 4vh;
+    p {
+      font-size: 28px;
+      font-weight: 700;
+      padding-bottom: 8px;
+      position: relative;
+      &:first-child {
+        right: 13vh;
+      }
+      &:not(:first-child) {
+        right: 9vh;
+      }
+    }
+    .edit_title {
+      box-shadow: 0 18px 36px -18px rgba(0, 0, 0, 0.3),
+        0 -12px 36px -8px rgba(0, 0, 0, 0.025);
+      padding: 1vh;
+      border-radius: 10px;
+      margin-bottom: 4vh;
+    }
+    .deit_description {
+      box-shadow: 0 18px 36px -18px rgba(0, 0, 0, 0.3),
+        0 -12px 36px -8px rgba(0, 0, 0, 0.025);
+      padding: 1vh;
+      border-radius: 10px;
+      padding-bottom: 3vh;
+      margin-bottom: 4vh;
+      resize: none;
+    }
+    .edit_submit {
+      font-size: 18px;
+      font-weight: 500;
+      color: white;
+      background-color: #f78f24;
+      box-shadow: 0 18px 36px -18px rgba(0, 0, 0, 0.3),
+        0 -12px 36px -8px rgba(0, 0, 0, 0.025);
+      padding: 1vh;
+      border-radius: 10px;
+    }
+    .edit_submit:hover {
+      background-color: #a35e18;
+    }
+  }
+  a {
+    font-size: 18px;
+    font-weight: 500;
+    color: white;
+    background-color: $red;
+    box-shadow: 0 18px 36px -18px rgba(0, 0, 0, 0.3),
+      0 -12px 36px -8px rgba(0, 0, 0, 0.025);
+    padding: 1vh;
+    border-radius: 10px;
+  }
+  a:hover {
+    background-color: $dark-red;
+  }
+}

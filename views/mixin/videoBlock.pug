@@ -1,0 +1,10 @@
+mixin videoBlock(video = {})
+    .videoBlock
+        a(href=routes.video_detail(video.id))
+            video.videoBlock__thumb(src=video.videoFile, controls=true)
+            .videoBlock__text
+                h4.videoBlock__title=video.title
+                if video.views == 1 || video.views == 0
+                    h6.videoBlock__views view #{video.views}
+                else    
+                     h6.videoBlock__views views #{video.views}

@@ -1,0 +1,36 @@
+.home_video {
+}
+
+.videos {
+  padding: 50px;
+  display: grid;
+  grid-template-columns: repeat(8, minmax(1vh, 15vh));
+  gap: 20px;
+  .videoBlock:first-child {
+    grid-column: span 8;
+    width: 80%;
+    a {
+      display: flex;
+      .videoBlock__text {
+        margin-left: 25px;
+        width: 100px;
+        .videoBlock__title {
+          white-space: nowrap;
+          font-size: 20px;
+          font-weight: 900;
+        }
+        .videoBlock__views {
+        }
+      }
+    }
+  }
+  .videoBlock:not(:first-child) {
+    grid-column: span 2;
+    a {
+      .videoBlock__title {
+        font-size: 20px;
+        font-weight: 700;
+      }
+    }
+  }
+}

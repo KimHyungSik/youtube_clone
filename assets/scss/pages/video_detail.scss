@@ -1,0 +1,52 @@
+.video__detail {
+  width: 100%;
+  height: 100%;
+  margin: 7vh 0 0 4vh;
+  align-items: center;
+  .video__player {
+    width: 50%;
+    video {
+      width: 85vh;
+    }
+  }
+  .video__info {
+    margin-top: 15px;
+    a {
+      font-size: 20px;
+      font-weight: 700;
+      color: white;
+      display: block;
+      width: 9vh;
+      background-color: #f78f24;
+      margin-bottom: 15px;
+      padding: 10px;
+      border-radius: 10px;
+    }
+    a:hover {
+      background-color: #a35e18;
+    }
+    .video__title {
+      font-size: 38px;
+      font-weight: 500;
+      padding-bottom: 20px;
+    }
+    .video__views {
+      width: 100%;
+      font-size: 18px;
+      padding-bottom: 15px;
+      border-bottom: 2px solid $Light_purple;
+    }
+    .video__description {
+      margin-top: 18px;
+      padding-bottom: 15px;
+      border-bottom: 2px solid $Light_purple;
+    }
+  }
+  .video__comments {
+    margin-top: 25px;
+    text-align: center;
+    .video__comments-no {
+      font-size: 22px;
+    }
+  }
+}

@@ -1,0 +1,55 @@
+.form__container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+  padding-top: 15vh;
+  form {
+    width: 35%;
+    display: flex;
+    flex-direction: column;
+    input {
+      box-shadow: 0 18px 36px -18px rgba(0, 0, 0, 0.3),
+        0 -12px 36px -8px rgba(0, 0, 0, 0.025);
+      padding: 1vh;
+      border-radius: 10px;
+      &:not(:last-child) {
+        margin-bottom: 2vh;
+        border: 1px solid $dark-grey;
+      }
+      &:last-child {
+        background-color: $purple;
+        margin-bottom: 4vh;
+        color: white;
+        font-size: 15px;
+        font-weight: 600;
+      }
+    }
+  }
+}
+
+.secial-login {
+  display: flex;
+  flex-direction: column;
+  width: 35%;
+  button {
+    border: none;
+    margin-bottom: 2vh;
+    border-radius: 10px;
+    padding: 1vh;
+    color: white;
+    font-size: 15px;
+    font-weight: 600;
+    i {
+      font-size: 20px;
+      padding: 0 2vh 0 0;
+    }
+  }
+  .social-login__github {
+    background-color: $github-color;
+  }
+  .social-login__facebook {
+    background-color: $facebook-blue;
+  }
+}

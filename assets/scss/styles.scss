@@ -1,0 +1,13 @@
+@import '/config/_variables.scss';
+@import '/config/reset.scss';
+@import 'main.scss';
+
+@import '/partials/header.scss';
+@import '/partials/footer.scss';
+@import '/partials/video_Block.scss';
+
+@import '/pages/video_detail.scss';
+@import '/pages/home.scss';
+@import '/pages/join.scss';
+@import '/pages/edit_video.scss';
+@import '/pages/edit_profile.scss';

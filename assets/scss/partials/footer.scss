@@ -1,0 +1,21 @@
+footer {
+  width: 100%;
+  background-color: $dark-grey;
+  height: 13%;
+  min-height: 13vh;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  border-top: 3px solid rgba(0, 0, 0, 0.1);
+  .footer__wrapper {
+    padding-top: 50px;
+    .footer_cion {
+      i {
+        font-size: 40px;
+        color: black;
+        opacity: 0.5;
+        padding-bottom: 10px;
+      }
+    }
+  }
+}
