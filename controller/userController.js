@@ -1,11 +1,13 @@
 import routes from '../routes';
 import User from '../models/User';
+import passport from 'passport';
 
+//=============================Join=============================
 export const getjoin = (req, res) => {
   res.render('join', { pageTitle: 'join' });
 };
 
-export const postjoin = async (req, res) => {
+export const postjoin = async (req, res, next) => {
   const {
     body: { name, email, password, password2 },
   } = req;
@@ -17,29 +19,44 @@ export const postjoin = async (req, res) => {
     try {
       const user = await User({ name, email });
       await User.register(user, password);
+      next();
     } catch (error) {
       console.log(error);
+      res.redirect(routes.join);
     }
-    res.redirect(routes.home);
   }
 };
 
+//=============================Login=============================
 export const getlogin = (req, res) => {
   //To Do Process Log Out
   res.render('login', { pageTitle: 'login' });
 };
 
-export const postlogin = (req, res) => {
-  const {
-    body: { email, password },
-  } = req;
-  res.redirect(routes.home);
+export const postlogin = passport.authenticate('local', {
+  failureRedirect: routes.login,
+  successRedirect: routes.home,
+});
+
+//==========================================================
+export const logout = (req, res) => {
+  req.logout();
+  req.session.destroy((err) => {
+    res.redirect(routes.home);
+  });
 };
 
-export const logout = (req, res) =>
-  res.render('logout', { pageTitle: 'logout' });
 export const user_detail = (req, res) =>
   res.render('user_detail', { pageTitle: 'user_detail' });
+
+export const me = (req, res) => {
+  console.log(req.loggedUser);
+  res.render('user_detail', {
+    pageTitle: 'user_detail',
+    loggedUser: req.loggedUser,
+  });
+};
+
 export const edit_profile = (req, res) =>
   res.render('edit_profile', { pageTitle: 'edit_profile' });
 export const change_password = (req, res) =>
