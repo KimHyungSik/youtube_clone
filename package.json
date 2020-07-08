@@ -7,7 +7,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev:server": "nodemon --exec babel-node init.js --delay 2 --ignore 'scss'",
     "dev:assets": "cross-env WEBPACK_ENV=development webpack -w",
-    "build:assets": "cross-env WEBPACK_ENV=production webpack"
+    "build:assets": "cross-env WEBPACK_ENV=production webpack",
+    "tunnel": "Lt --port 4000"
   },
   "author": "KIm",
   "license": "ISC",

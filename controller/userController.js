@@ -46,8 +46,17 @@ export const logout = (req, res) => {
   });
 };
 
-export const user_detail = (req, res) =>
-  res.render('user_detail', { pageTitle: 'user_detail' });
+export const user_detail = async (req, res) => {
+  const {
+    params: { id },
+  } = req;
+  try {
+    const user = await User.findById(id);
+    res.render('user_detail', { pageTitle: 'User Detail', user });
+  } catch (error) {
+    res.redirect(routes.home);
+  }
+};
 
 export const me = (req, res) => {
   console.log(req.loggedUser);
@@ -57,7 +66,36 @@ export const me = (req, res) => {
   });
 };
 
-export const edit_profile = (req, res) =>
-  res.render('edit_profile', { pageTitle: 'edit_profile' });
+export const get_edit_profile = async (req, res) => {
+  const {
+    params: { id },
+  } = req;
+  try {
+    const user_ = await User.findById(id);
+    console.log(user_);
+    res.render('edit_profile', { pageTitle: `${user_.id} edit`, user_ });
+  } catch (error) {
+    console.log(error);
+    res.redirect(routes.home);
+  }
+};
+
+export const post_edit_profile = async (req, res) => {
+  const {
+    params: { id },
+    body: { avatar, name, email },
+  } = req;
+  try {
+    await User.findOneAndUpdate(
+      { _id: id },
+      { $set: { avatarUrl: avatar, name, email } }
+    );
+    res.redirect(routes.user_detail(id));
+  } catch (error) {
+    console.log(error);
+    res.redirect(routes.home);
+  }
+};
+
 export const change_password = (req, res) =>
   res.render('change_password', { pageTitle: 'change_password' });

@@ -3,5 +3,7 @@ extends layouts/main
 block content
     .header-profile
         .user-profile__header
-            .img.avatat(src=loggedUser.avatarUrl)
+            img(src=`/${loggedUser.avatarUrl}`)
             h4.profile__username=loggedUser.name
+        .user-profile__edit
+            a(href=routes.edit_profile(loggedUser.id)) Edit Profile

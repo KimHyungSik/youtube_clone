@@ -2,12 +2,12 @@ extends layouts/main
 
 block content
     .form__Avatar 
-        form(action=routes.edit_profile, method='post')
+        form(action=routes.edit_profile(user_.id), method='post')
             .edit_Avatar
                 label(for='avatar') Avatar
                 input(type='file', id='avatar', name='avatar')
             .edit_Avatar_text
-                input(type="text", placeholder="Name", name='nema')
-                input(type="text", placeholder="Email", name='email')
+                input(type="text", placeholder="Name", name='name', value=user_.name)
+                input(type="text", placeholder="Email", name='email', value=user_.email)
                 input(type="submit", value="Update Profile").edit_profile_submit
         a.form__container__link(href=`/users${routes.change_password}`)|Change Password
