@@ -1,9 +1,33 @@
-.header-prfile {
-  background-color: red;
-  .user-profile__header {
-    img {
-      width: 5vh;
-      height: 5vh;
+.header-profile {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 100px;
+  .user-profile__coulmn {
+    width: 60%;
+    border: $Light_purple solid 2px;
+    border-radius: 70px;
+    padding: 18px;
+    display: flex;
+    justify-content: center;
+    .user-profile__header {
+      width: 20vh;
+      height: 20vh;
+    }
+    .user-profile__edit {
+      padding-top: 80px;
+      text-align: center;
+      align-items: center;
+      width: 20vh;
+      height: 20vh;
+      h4 {
+        font-size: 45px;
+        color: black;
+        font-weight: 700;
+        padding-bottom: 60px;
+      }
     }
   }
 }

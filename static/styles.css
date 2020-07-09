@@ -160,6 +160,27 @@ a {
   color: inherit;
   text-decoration: none; }
 
+.avatarImg {
+  width: 100%;
+  height: 100%;
+  -webkit-border-radius: 100%;
+     -moz-border-radius: 100%;
+          border-radius: 100%; }
+
+.edit_buttom {
+  font-size: 20px;
+  font-weight: 700;
+  color: white;
+  display: block;
+  background-color: #f78f24;
+  padding: 10px;
+  -webkit-border-radius: 10px;
+     -moz-border-radius: 10px;
+          border-radius: 10px; }
+
+.edit_buttom:hover {
+  background-color: #a35e18; }
+
 .header__wrapper {
   background-color: #e1c6f9;
   width: 100%;
@@ -274,19 +295,7 @@ footer {
   .video__detail .video__info {
     margin-top: 15px; }
     .video__detail .video__info a {
-      font-size: 20px;
-      font-weight: 700;
-      color: white;
-      display: block;
-      width: 9vh;
-      background-color: #f78f24;
-      margin-bottom: 15px;
-      padding: 10px;
-      -webkit-border-radius: 10px;
-         -moz-border-radius: 10px;
-              border-radius: 10px; }
-    .video__detail .video__info a:hover {
-      background-color: #a35e18; }
+      width: 100px; }
     .video__detail .video__info .video__title {
       font-size: 38px;
       font-weight: 500;
@@ -591,12 +600,12 @@ footer {
     .form__Avatar form .edit_Avatar_text .edit_profile_submit:hover {
       background-color: #a35e18; }
   .form__Avatar .form__container__link {
+    width: 28vh;
     font-size: 18px;
     font-weight: 500;
     color: white;
     background-color: #ea232c;
     position: relative;
-    right: 7vh;
     -webkit-box-shadow: 0 18px 36px -18px rgba(0, 0, 0, 0.3), 0 -12px 36px -8px rgba(0, 0, 0, 0.025);
        -moz-box-shadow: 0 18px 36px -18px rgba(0, 0, 0, 0.3), 0 -12px 36px -8px rgba(0, 0, 0, 0.025);
             box-shadow: 0 18px 36px -18px rgba(0, 0, 0, 0.3), 0 -12px 36px -8px rgba(0, 0, 0, 0.025);
@@ -607,8 +616,104 @@ footer {
   .form__Avatar .form__container__link:hover {
     background-color: #bb2f2a; }
 
-.header-prfile {
-  background-color: red; }
-  .header-prfile .user-profile__header img {
-    width: 5vh;
-    height: 5vh; }
+.header-profile {
+  width: 100%;
+  height: 100%;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+     -moz-box-orient: vertical;
+     -moz-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+     -moz-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding-top: 100px; }
+  .header-profile .user-profile__coulmn {
+    width: 60%;
+    border: #e1c6f9 solid 2px;
+    -webkit-border-radius: 70px;
+       -moz-border-radius: 70px;
+            border-radius: 70px;
+    padding: 18px;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+       -moz-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center; }
+    .header-profile .user-profile__coulmn .user-profile__header {
+      width: 20vh;
+      height: 20vh; }
+    .header-profile .user-profile__coulmn .user-profile__edit {
+      padding-top: 80px;
+      text-align: center;
+      -webkit-box-align: center;
+      -webkit-align-items: center;
+         -moz-box-align: center;
+          -ms-flex-align: center;
+              align-items: center;
+      width: 20vh;
+      height: 20vh; }
+      .header-profile .user-profile__coulmn .user-profile__edit h4 {
+        font-size: 45px;
+        color: black;
+        font-weight: 700;
+        padding-bottom: 60px; }
+
+.form-container_change_password {
+  width: 100%;
+  height: 100%;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+     -moz-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  padding-top: 15vh; }
+  .form-container_change_password form {
+    width: 30vh;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+       -moz-box-orient: vertical;
+       -moz-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    margin-bottom: 4vh; }
+    .form-container_change_password form input {
+      -webkit-box-shadow: 0 18px 36px -18px rgba(0, 0, 0, 0.3), 0 -12px 36px -8px rgba(0, 0, 0, 0.025);
+         -moz-box-shadow: 0 18px 36px -18px rgba(0, 0, 0, 0.3), 0 -12px 36px -8px rgba(0, 0, 0, 0.025);
+              box-shadow: 0 18px 36px -18px rgba(0, 0, 0, 0.3), 0 -12px 36px -8px rgba(0, 0, 0, 0.025);
+      font-size: 28px;
+      font-weight: 700;
+      padding: 15px;
+      margin-bottom: 15px;
+      position: relative; }
+    .form-container_change_password form .change_password_buttom {
+      padding: 10px;
+      -webkit-border-radius: 70px;
+         -moz-border-radius: 70px;
+              border-radius: 70px;
+      background-color: #ea232c; }

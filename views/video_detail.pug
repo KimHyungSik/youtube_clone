@@ -5,7 +5,7 @@ block content
         .video__player
             video(src=`/${video_.fileUrl}`, controls=true)
         .video__info
-            a(href=routes.edit_video(video_.id)) Edit video
+            a(href=routes.edit_video(video_.id)).edit_buttom Edit video
             h5.video__title=video_.title
             if video_.views == 1 || video_.views == 0
                 h6.video__views view #{video_.views}

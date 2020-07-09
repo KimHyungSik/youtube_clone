@@ -52,18 +52,11 @@ export const user_detail = async (req, res) => {
   } = req;
   try {
     const user = await User.findById(id);
+    console.log(user);
     res.render('user_detail', { pageTitle: 'User Detail', user });
   } catch (error) {
     res.redirect(routes.home);
   }
-};
-
-export const me = (req, res) => {
-  console.log(req.loggedUser);
-  res.render('user_detail', {
-    pageTitle: 'user_detail',
-    loggedUser: req.loggedUser,
-  });
 };
 
 export const get_edit_profile = async (req, res) => {

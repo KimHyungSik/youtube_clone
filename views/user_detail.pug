@@ -2,8 +2,11 @@ extends layouts/main
 
 block content
     .header-profile
-        .user-profile__header
-            img(src=`/${loggedUser.avatarUrl}`)
-            h4.profile__username=loggedUser.name
-        .user-profile__edit
-            a(href=routes.edit_profile(loggedUser.id)) Edit Profile
+        .user-profile__coulmn
+            .user-profile__header
+                img(src=`/${user.avatarUrl}`).avatarImg
+            .user-profile__edit
+                h4.profile__username=user.name
+                if loggedUser
+                    if user.id == loggedUser.id
+                        a(href=routes.edit_profile(user.id)).edit_buttom Edit Profile
