@@ -81,14 +81,16 @@ export const get_edit_profile = async (req, res) => {
 };
 
 export const post_edit_profile = async (req, res) => {
+  console.log(req);
   const {
     params: { id },
-    body: { avatar, name, email },
+    body: { name, email },
+    file: { path },
   } = req;
   try {
     await User.findOneAndUpdate(
       { _id: id },
-      { $set: { avatarUrl: avatar, name, email } }
+      { $set: { avatarUrl: path, name, email } }
     );
     res.redirect(routes.user_detail(id));
   } catch (error) {

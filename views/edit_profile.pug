@@ -2,10 +2,10 @@ extends layouts/main
 
 block content
     .form__Avatar 
-        form(action=routes.edit_profile(user_.id), method='post')
+        form(action=routes.edit_profile(user_.id), method='post',  enctype="multipart/form-data")
             .edit_Avatar
                 label(for='avatar') Avatar
-                input(type='file', id='avatar', name='avatar')
+                input(type='file', id='avatar', name='avatarFile', accept="image/*")
             .edit_Avatar_text
                 input(type="text", placeholder="Name", name='name', value=user_.name)
                 input(type="text", placeholder="Email", name='email', value=user_.email)

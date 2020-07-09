@@ -606,3 +606,9 @@ footer {
             border-radius: 10px; }
   .form__Avatar .form__container__link:hover {
     background-color: #bb2f2a; }
+
+.header-prfile {
+  background-color: red; }
+  .header-prfile .user-profile__header img {
+    width: 5vh;
+    height: 5vh; }
