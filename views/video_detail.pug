@@ -5,7 +5,8 @@ block content
         .video__player
             video(src=`/${video_.fileUrl}`, controls=true)
         .video__info
-            a(href=routes.edit_video(video_.id)).edit_buttom Edit video
+            if video_.creator._id === user._id
+                a(href=routes.edit_video(video_.id)).edit_buttom Edit video
             h5.video__title=video_.title
             if video_.views == 1 || video_.views == 0
                 h6.video__views view #{video_.views}
@@ -17,3 +18,6 @@ block content
                 span.video__comments-no #{video_.comments.length} comment
             else
                 span.video__comments-more #{video_.comments.length} comments
+        .video_author
+            |Uploaded by
+            a(href=routes.user_detail(video_.creator._id))=video_.creator.name

@@ -8,6 +8,7 @@ export const getjoin = (req, res) => {
 };
 
 export const postjoin = async (req, res, next) => {
+  const avatarUrl = 'uploads\\imgs\\firsting_img.PNG';
   const {
     body: { name, email, password, password2 },
   } = req;
@@ -17,8 +18,12 @@ export const postjoin = async (req, res, next) => {
   } else {
     // To Do: Register User
     try {
-      const user = await User({ name, email });
-      await User.register(user, password);
+      const user = await User({
+        name,
+        email,
+        avatarUrl,
+      });
+      await User.register(user, password, avatarUrl);
       next();
     } catch (error) {
       console.log(error);
@@ -78,12 +83,14 @@ export const post_edit_profile = async (req, res) => {
   const {
     params: { id },
     body: { name, email },
-    file: { path },
+    file,
   } = req;
   try {
     await User.findOneAndUpdate(
       { _id: id },
-      { $set: { avatarUrl: path, name, email } }
+      {
+        $set: { avatarUrl: file ? file.path : req.user.avatarUrl, name, email },
+      }
     );
     res.redirect(routes.user_detail(id));
   } catch (error) {
@@ -92,5 +99,25 @@ export const post_edit_profile = async (req, res) => {
   }
 };
 
-export const change_password = (req, res) =>
+export const getchange_password = (req, res) =>
   res.render('change_password', { pageTitle: 'change_password' });
+
+export const postChange_password = async (req, res) => {
+  console.log(req);
+  const {
+    user: { _id },
+    body: { oldPasswod, newPassword, newPassword1 },
+  } = req;
+  try {
+    if (newPassword !== newPassword1) {
+      res.status(400);
+      res.redirect(`/users/${routes.change_password}`);
+      return;
+    }
+    console.log(_id);
+    await req.user.changePassword(oldPasswod, newPassword);
+    res.redirect(routes.edit_profile(_id));
+  } catch (error) {
+    res.render(routes.change_password);
+  }
+};
