@@ -9,6 +9,12 @@
       width: 85vh;
     }
   }
+  .video_author {
+    a {
+      font-size: 25px;
+      color: $light_orange;
+    }
+  }
   .video__info {
     margin-top: 15px;
     a {

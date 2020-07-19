@@ -56,7 +56,7 @@ export const user_detail = async (req, res) => {
     params: { id },
   } = req;
   try {
-    const user = await User.findById(id);
+    const user = await User.findById(id).populate('videos');
     console.log(user);
     res.render('user_detail', { pageTitle: 'User Detail', user });
   } catch (error) {

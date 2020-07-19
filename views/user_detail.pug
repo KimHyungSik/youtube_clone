@@ -1,4 +1,5 @@
 extends layouts/main
+include mixin/videoBlock
 
 block content
     .header-profile
@@ -10,3 +11,11 @@ block content
                 if loggedUser
                     if user.id == loggedUser.id
                         a(href=routes.edit_profile(user.id)).edit_buttom Edit Profile
+        .uploads-videos
+            each item in user.videos
+                +videoBlock({
+                    id: item._id,
+                    title: item.title,
+                    views: item.views,
+                    videoFile: item.fileUrl
+                })

@@ -271,7 +271,8 @@ footer {
       padding-bottom: 10px; }
 
 .videoBlock video {
-  max-width: 100%; }
+  max-width: 100%;
+  max-height: 100%; }
 
 .videoBlock h4 {
   font-size: 15px; }
@@ -292,6 +293,9 @@ footer {
     width: 50%; }
     .video__detail .video__player video {
       width: 85vh; }
+  .video__detail .video_author a {
+    font-size: 25px;
+    color: #f78f24; }
   .video__detail .video__info {
     margin-top: 15px; }
     .video__detail .video__info a {
@@ -322,7 +326,8 @@ footer {
   gap: 20px; }
   .videos .videoBlock:first-child {
     grid-column: span 8;
-    width: 80%; }
+    width: 80%;
+    height: 80%; }
     .videos .videoBlock:first-child a {
       display: -webkit-box;
       display: -webkit-flex;
