@@ -280,6 +280,58 @@ footer {
 .videoBlock h6 {
   font-size: 13px; }
 
+.videoPlayer {
+  position: relative; }
+  .videoPlayer:hover .videoPlayer__controls {
+    opacity: 1; }
+  .videoPlayer video {
+    max-width: 100%; }
+  .videoPlayer .videoPlayer__controls {
+    opacity: 0;
+    -webkit-transition: opacity 0.4s linear;
+    -o-transition: opacity 0.4s linear;
+    -moz-transition: opacity 0.4s linear;
+    transition: opacity 0.4s linear;
+    width: 100%;
+    height: 65px;
+    font-size: 20px;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 12px 15px;
+    position: absolute;
+    bottom: 3px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); }
+    .videoPlayer .videoPlayer__controls .videoPlayer__column:first-child {
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: -moz-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-align: center;
+      -webkit-align-items: center;
+         -moz-box-align: center;
+          -ms-flex-align: center;
+              align-items: center; }
+      .videoPlayer .videoPlayer__controls .videoPlayer__column:first-child span:first-child {
+        margin-right: 10px; }
+      .videoPlayer .videoPlayer__controls .videoPlayer__column:first-child:hover {
+        cursor: pointer; }
+    .videoPlayer .videoPlayer__controls .videoPlayer__column:last-child {
+      -webkit-align-self: center;
+          -ms-flex-item-align: center;
+              align-self: center;
+      justify-self: end; }
+      .videoPlayer .videoPlayer__controls .videoPlayer__column:last-child:hover {
+        cursor: pointer; }
+    .videoPlayer .videoPlayer__controls .videoPlayer__column:nth-child(2) {
+      -webkit-align-self: center;
+          -ms-flex-item-align: center;
+              align-self: center;
+      justify-self: center; }
+      .videoPlayer .videoPlayer__controls .videoPlayer__column:nth-child(2):hover {
+        cursor: pointer; }
+
 .video__detail {
   width: 100%;
   height: 100%;
@@ -290,7 +342,7 @@ footer {
       -ms-flex-align: center;
           align-items: center; }
   .video__detail .video__player {
-    width: 50%; }
+    width: 90%; }
     .video__detail .video__player video {
       width: 85vh; }
   .video__detail .video_author a {
