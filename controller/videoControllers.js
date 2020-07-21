@@ -62,7 +62,6 @@ export const video_detail = async (req, res) => {
   } = req;
   try {
     const video_ = await Video.findById(id).populate('creator');
-    console.log(video_, user);
     res.render('video_detail', {
       pageTitle: `${video_.title} Detail`,
       video_,
@@ -79,13 +78,14 @@ export const get_edit_video = async (req, res) => {
     params: { id },
   } = req;
   try {
-    const video_ = await Video.findById(id);
-    if (video_.creator !== req.user._id) {
+    const video_ = await await Video.findById(id);
+    if (String(video_.creator) !== req.user.id) {
       throw Error();
     } else {
       res.render('edit_video', { pageTitle: `Edit ${video_.title}`, video_ });
     }
   } catch (error) {
+    console.log(error);
     res.redirect(routes.home);
   }
 };
