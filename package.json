@@ -19,6 +19,7 @@
     "@babel/preset-env": "^7.10.4",
     "Babel": "0.0.1",
     "autoprefixer": "^9.8.4",
+    "axios": "^0.19.2",
     "babel-loader": "^8.1.0",
     "body-parser": "^1.19.0",
     "connect-mongo": "^3.2.0",

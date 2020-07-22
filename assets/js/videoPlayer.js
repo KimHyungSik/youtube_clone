@@ -5,6 +5,12 @@ const volumeBtn = document.getElementById('jsVolumeBtn');
 const fullScrnBtn = document.getElementById('jsFullScreen');
 const currenTime = document.getElementById('currenTime');
 const totTime = document.getElementById('totTime');
+const volumeRange = document.getElementById('jsVolume');
+
+const registerView = () => {
+  const video_id = window.location.href.split('videos/')[1];
+  fetch(`/api/${video_id}/view`, { method: 'POST' });
+};
 
 function handlePlayClick() {
   if (videoPlayer.paused) {
@@ -19,10 +25,12 @@ function handlePlayClick() {
 function handleVolumeClick() {
   if (videoPlayer.muted) {
     videoPlayer.muted = false;
-    volumeBtn.innerHTML = '<i class="fas fa-volume-mute"></i>';
+    volumeRange.value = videoPlayer.volume;
+    volumeBtn.innerHTML = '<i class="fas fa-volume-up"></i>';
   } else {
     videoPlayer.muted = true;
-    volumeBtn.innerHTML = '<i class="fas fa-volume-up"></i>';
+    volumeRange.value = 0;
+    volumeBtn.innerHTML = '<i class="fas fa-volume-mute"></i>';
   }
 }
 
@@ -76,7 +84,14 @@ const formatDate = (seconds) => {
 };
 function getCurrentTiem() {
   console.log(videoPlayer.currentTime);
-  currenTime.innerHTML = formatDate(videoPlayer.currentTime);
+  currenTime.innerHTML = formatDate(Math.floor(videoPlayer.currentTime));
+}
+
+function handleEnded() {
+  registerView();
+  videoPlayer.currentTime = 0;
+  videoPlayer.pause();
+  playBtn.innerHTML = '<i class="fas fa-play"></i>';
 }
 
 function setTotalTiem() {
@@ -85,11 +100,28 @@ function setTotalTiem() {
   setInterval(getCurrentTiem, 1000);
 }
 
+function handleDrag(event) {
+  const {
+    target: { value },
+  } = event;
+  videoPlayer.volume = value;
+  if (value > 0.7) {
+    volumeBtn.innerHTML = '<i class="fas fa-volume-up"></i>';
+  } else if (value > 0.1) {
+    volumeBtn.innerHTML = '<i class="fas fa-volume-down"></i>';
+  } else if (value == 0) {
+    volumeBtn.innerHTML = '<i class="fas fa-volume-mute"></i>';
+  }
+}
+
 function init() {
+  videoPlayer.volume = 0.5;
   playBtn.addEventListener('click', handlePlayClick);
   volumeBtn.addEventListener('click', handleVolumeClick);
   fullScrnBtn.addEventListener('click', goFullScreen);
   videoPlayer.addEventListener('loadedmetadata', setTotalTiem);
+  videoPlayer.addEventListener('ended', handleEnded);
+  volumeRange.addEventListener('input', handleDrag);
 }
 
 if (videoContainer) {

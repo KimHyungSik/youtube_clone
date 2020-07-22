@@ -9,6 +9,7 @@ import MongoStore from 'connect-mongo';
 import { localsMiddleware } from './middleware';
 import routes from './routes';
 import bodyParser from 'body-parser';
+import apiRouter from './Router/apiRouter';
 import userRouter from './Router/userRouter';
 import videoRouter from './Router/videoRouter';
 import globalRouter from './Router/globalRouter';
@@ -45,5 +46,6 @@ app.use(localsMiddleware); //locals변수로 전역 변수 선언_middleware.js�
 app.use(routes.user, userRouter);
 app.use(routes.videos, videoRouter);
 app.use(routes.home, globalRouter);
+app.use(routes.api, apiRouter);
 
 export default app;
