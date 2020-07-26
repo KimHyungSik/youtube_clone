@@ -1,5 +1,6 @@
 import routes from '../routes.js';
 import Video from '../models/Video';
+import Comment from '../models/Comment';
 
 export const home = async (req, res) => {
   try {
@@ -61,7 +62,9 @@ export const video_detail = async (req, res) => {
     params: { id },
   } = req;
   try {
-    const video_ = await Video.findById(id).populate('creator');
+    const video_ = await Video.findById(id)
+      .populate('creator')
+      .populate('comments');
     res.render('video_detail', {
       pageTitle: `${video_.title} Detail`,
       video_,
@@ -138,6 +141,31 @@ export const postregisterView = async (req, res) => {
   } catch (error) {
     res.statusCode(400);
     res.end();
+  } finally {
+    res.end();
+  }
+};
+
+//ADD Comment
+
+export const postAddCommnet = async (req, res) => {
+  const {
+    params: { id },
+    body: { comment },
+    user,
+  } = req;
+  try {
+    const video = await Video.findById(id);
+    const newComment = await Comment.create({
+      text: comment,
+      creator: user._id,
+    });
+    video.comments.push(newComment._id);
+    video.save();
+    console.log('comment save');
+  } catch (error) {
+    console.log(error);
+    res.status(400);
   } finally {
     res.end();
   }

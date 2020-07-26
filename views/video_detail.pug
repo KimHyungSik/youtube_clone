@@ -24,4 +24,10 @@ block content
             if video_.comments.length < 2
                 span.video__comments-no #{video_.comments.length} comment
             else
-                span.video__comments-more #{video_.comments.length} comments
+                span.video__comments-more#jscommentsNumber #{video_.comments.length}comments
+            form.add__comment#jsAddComment
+                input(type="text", placeholder="coments")
+            ul.video__comments-list#jsCommentList
+                each comment in video_.comments.reverse()
+                    li
+                        span=comment.text

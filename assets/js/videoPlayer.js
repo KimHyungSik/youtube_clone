@@ -83,7 +83,6 @@ const formatDate = (seconds) => {
   return `${hours}:${minutes}:${totalSeconds}`;
 };
 function getCurrentTiem() {
-  console.log(videoPlayer.currentTime);
   currenTime.innerHTML = formatDate(Math.floor(videoPlayer.currentTime));
 }
 
